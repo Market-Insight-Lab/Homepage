@@ -26,7 +26,7 @@ export default function App() {
                                 Home
                             </a>
                             <a
-                                href="#"
+                                href="/about"
                                 className="text-white mx-4 hover:underline"
                             >
                                 About
