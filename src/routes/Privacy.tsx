@@ -64,21 +64,21 @@ const markdown = `
 
 export default function Privacy() {
     return (
-        <div className='bg-[#161b22] min-h-screen py-16 px-10'>
+        <div className='bg-[#161b22] min-h-screen py-12 sm:py-16 px-4 sm:px-6 md:px-10'>
 
 
-            <h1 className="text-3xl font-extrabold text-white mb-8 text-center">마켓인사이트랩 개인정보 처리방침</h1>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-8 text-center">마켓인사이트랩 개인정보 처리방침</h1>
 
             <Markdown
                 components={{
                     h3: ({ node, ...props }) => (
-                        <h3 className="text-xl font-bold mt-10 mb-4 text-[#58a6ff]" {...props} />
+                        <h3 className="text-lg sm:text-xl font-bold mt-8 sm:mt-10 mb-4 text-[#58a6ff]" {...props} />
                     ),
                     p: ({ node, ...props }) => (
-                        <p className="my-3 text-gray-300" {...props} />
+                        <p className="my-3 text-gray-300 text-sm sm:text-base" {...props} />
                     ),
                     li: ({ node, ...props }) => (
-                        <li className="my-1 text-gray-300" {...props} />
+                        <li className="my-1 text-gray-300 text-sm sm:text-base" {...props} />
                     )
                 }}
             >

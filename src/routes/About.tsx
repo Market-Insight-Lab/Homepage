@@ -1,9 +1,13 @@
 //@ts-nocheck
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import about2140 from "../asset/about2140.jpg";
 import { BarChart2, Shield, Search, Users } from 'lucide-react';
 import logo from "../asset/logo.png";
 
 export default function About() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <>
             <section
@@ -21,7 +25,7 @@ export default function About() {
                         <div className="text-white text-2xl font-bold">
                             <a href="/"> Market Insight Lab</a>
                         </div>
-                        <div className="font-bold">
+                        <div className="hidden md:flex font-bold">
                             <a
                                 href="/"
                                 className="text-white mx-4 hover:underline"
@@ -41,7 +45,37 @@ export default function About() {
                                 GITHUB
                             </a>
                         </div>
+                        <div className="md:hidden">
+                            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+                                {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+                            </button>
+                        </div>
                     </nav>
+                    {isMenuOpen && (
+                        <div className="md:hidden absolute top-0 left-0 w-full h-screen bg-gray-900 bg-opacity-90 flex flex-col items-center justify-center">
+                            <a
+                                href="/"
+                                className="text-white text-2xl my-4 hover:underline"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Home
+                            </a>
+                            <a
+                                href="/about"
+                                className="text-white text-2xl my-4 hover:underline"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                About
+                            </a>
+                            <a
+                                href="https://github.com/Market-Insight-Lab"
+                                className="text-white text-2xl my-4 hover:underline"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                GITHUB
+                            </a>
+                        </div>
+                    )}
                 </header>
                 {/* 어두운 오버레이 */}
                 <div
@@ -51,19 +85,19 @@ export default function About() {
                 <div
                     className="absolute inset-0 flex items-center justify-center"
                 >
-                    <div className="grid grid-cols-1 text-white text-left">
-                        <p className="text-[3.5em] font-bold">어려운 주식과 투자을 보다 쉽게</p>
-                        <p className="text-[3.5em] font-bold">접근하기 위한 서비스를 개발합니다.</p>
+                    <div className="grid grid-cols-1 text-white text-left p-4">
+                        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">어려운 주식과 투자을 보다 쉽게</p>
+                        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">접근하기 위한 서비스를 개발합니다.</p>
                     </div>
                 </div>
 
             </section>
 
             {/* Vision Section */}
-            <section className="py-28 bg-[#0b0d11] text-white">
+            <section className="py-20 sm:py-28 bg-[#0b0d11] text-white">
                 <div className="max-w-5xl mx-auto px-6">
-                    <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
-                    <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-6">Our Vision</h2>
+                    <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-3xl">
                         금융 데이터는 방대하고, 시장은 빠르게 변화합니다. 우리는 이러한 복잡함 속에서 투자자가 더 쉽게 의사결정을 내릴 수 있도록 돕는 기술을 만들고 있습니다.
                         정교한 데이터 분석, 직관적인 시각화, 그리고 빠른 팩트 추출을 통해 금융 시장을 누구나 이해할 수 있는 환경으로 바꾸는 것이 우리의 목표입니다.
                     </p>
@@ -71,11 +105,11 @@ export default function About() {
             </section>
 
             {/* Company Identity */}
-            <section className="py-24 bg-[#0f1115]">
+            <section className="py-20 sm:py-24 bg-[#0f1115]">
                 <div className="container flex justify-center items-center p-10 mx-auto gap-10 flex-col md:flex-row">
-                    <img src={logo} alt="Company Logo" className="rounded-2xl w-60 h-60" />
-                    <div>
-                        <h2 className="text-4xl font-bold mb-4 text-white">Market Insight Lab</h2>
+                    <img src={logo} alt="Company Logo" className="rounded-2xl w-48 h-48 sm:w-60 sm:h-60" />
+                    <div className="text-center md:text-left">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Market Insight Lab</h2>
                         <p className="text-gray-400 max-w-lg leading-relaxed">
                             Market Insight Lab은 IT 기술과 금융 데이터를 결합해 누구나 사용할 수 있는 고도화된 투자 도구를 만드는 스타트업입니다.
                             우리는 뉴스 분석, 정량데이터 시각화, AI 기반 시장 심리 분석 등 다양한 기능을 통해
@@ -86,10 +120,10 @@ export default function About() {
             </section>
 
             {/* Values Section */}
-            <section className="py-24 bg-[#0f1115] text-white">
+            <section className="py-20 sm:py-24 bg-[#0f1115] text-white">
                 <div className="max-w-6xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold mb-4">Core Values</h2>
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="text-2xl sm:text-3xl font-bold mb-4">Core Values</h2>
                         <p className="text-gray-400">우리가 추구하는 기술적 가치입니다.</p>
                     </div>
 
