@@ -19,7 +19,7 @@ export default function About() {
                 <header className="relative z-10">
                     <nav className="flex items-center justify-between p-6">
                         <div className="text-white text-2xl font-bold">
-                            Market Insight Lab
+                            <a href="/"> Market Insight Lab</a>
                         </div>
                         <div className="font-bold">
                             <a
