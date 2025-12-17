@@ -1,4 +1,4 @@
-FROM node:20-slim AS builder
+FROM node:24-slim AS builder
 WORKDIR /app
 
 # yarn 설치
@@ -11,7 +11,7 @@ COPY . .
 RUN yarn build
 
 
-FROM node:20-slim
+FROM node:24-slim
 WORKDIR /app
 
 COPY --from=builder /app/dist ./dist
